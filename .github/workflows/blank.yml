@@ -53,7 +53,7 @@ jobs:
         run: |
           cd ./backend/src
           ls -la
-          pipenv run python manage.py test
+          pipenv run python manage.py migrate
 
 # ls -la
 # mysql  -u test -h mysql -P 3306 -ptest gmop < gmop_data_init_0000.sql
