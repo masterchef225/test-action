@@ -46,14 +46,15 @@ jobs:
           swig \
           less \
           supervisor 
-          cd ./backend
-          ls -la
-          pip install --upgrade pip && pip install pipenv && pipenv install --dev
-      - name: Run
-        run: |
-          cd ./backend/src
-          ls -la
-          pipenv run python manage.py test
+          mysql  -u test -h mysql -P 3306 -ptest test_gmop < gmop_data_init_0000.sql
+#     cd ./backend
+#     ls -la
+#     pip install --upgrade pip && pip install pipenv && pipenv install --dev
+# - name: Run
+#   run: |
+#     cd ./backend/src
+#     ls -la
+#     pipenv run python manage.py test
 
 # ls -la
 # mysql  -u test -h mysql -P 3306 -ptest gmop < gmop_data_init_0000.sql
