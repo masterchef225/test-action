@@ -45,3 +45,5 @@ jobs:
           swig \
           less \
           supervisor 
+          cd ./backend
+          pip install pipenv && pipenv install --dev
