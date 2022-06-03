@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: ubuntu
+    container: python:3.8
     services:
       mysql:
         image: mysql
@@ -26,7 +26,22 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run a multi-line script
+        env:
+          DATABASE_URL: test
+          DJANGO_SETTINGS_MODULE: mysql://test:test@mysql:3306/test
         run: |
-          apt-get update -y 
-          apt-get install -y telnet
-          telnet mysql 3306
+          apt-get update -y
+          apt-get install -y libsasl2-dev 
+          python-dev 
+          libldap2-dev 
+          libssl-dev 
+          libcurl4-openssl-dev 
+          mariadb-client 
+          openssh-server 
+          xmlsec1 
+          vim 
+          sudo 
+          logrotate 
+          swig 
+          less 
+          supervisor 

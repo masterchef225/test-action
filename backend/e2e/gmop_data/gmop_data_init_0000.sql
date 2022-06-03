@@ -1,0 +1,4 @@
+CREATE DATABASE gmop;
+
+GRANT ALL PRIVILEGES ON gmop.* to gmop;
+
