@@ -27,5 +27,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo ${{ job.services.mysql.ports['3306'] }}
-          mysql -u test -h localhost-P ${{ job.services.mysql.ports['3306'] }} test -ptest test
+          mysql -u test -h localhost test -ptest test
           echo ${{ job.services.mysql.ports['3306'] }}
