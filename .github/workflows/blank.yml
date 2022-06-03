@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Run a multi-line script
         env:
-          DATABASE_URL: 'mysql://test:test@mysql:3306/gmop'
+          DATABASE_URL: 'mysql://root:example@mysql:3306/gmop'
           DJANGO_SETTINGS_MODULE: gmop.settings.dev
         run: |
           apt-get update -y
