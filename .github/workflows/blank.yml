@@ -32,6 +32,7 @@ jobs:
         run: |
           ls -la
           mysql  -u test -h mysql -P 3306 -ptest gmop < gmop_data_init_0000.sql
+          echo $DATABASE_URL
 # apt-get update -y
 # apt-get install -y \
 # mysql-server
