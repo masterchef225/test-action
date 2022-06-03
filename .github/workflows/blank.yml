@@ -26,5 +26,6 @@ jobs:
       - name: Run a multi-line script
         run: |
           sudo apt-get update -y
+          sudo apt-get install -y mysql-client
          
  
