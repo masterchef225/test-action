@@ -12,17 +12,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: python:3.8
-    services:
-      mysql:
-        image: mysql
-        ports:
-        - 3306:3306
-        options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
-        env:
-          MYSQL_DATABASE: test
-          MYSQL_USER: test
-          MYSQL_PASSWORD: test
-          MYSQL_ROOT_PASSWORD: example
+    # services:
+    #   mysql:
+    #     image: mysql
+    #     ports:
+    #     - 3306:3306
+    #     options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
+    #     env:
+    #       MYSQL_DATABASE: test
+    #       MYSQL_USER: test
+    #       MYSQL_PASSWORD: test
+    #       MYSQL_ROOT_PASSWORD: example
     steps:
       - uses: actions/checkout@v3
       - name: Run a multi-line script
@@ -31,17 +31,17 @@ jobs:
           DJANGO_SETTINGS_MODULE: mysql://test:test@mysql:3306/test
         run: |
           apt-get update -y
-          apt-get install -y libsasl2-dev 
-          python-dev 
-          libldap2-dev 
-          libssl-dev 
-          libcurl4-openssl-dev 
-          mariadb-client 
-          openssh-server 
-          xmlsec1 
-          vim 
-          sudo 
-          logrotate 
-          swig 
-          less 
+          apt-get install -y libsasl2-dev \
+          python-dev \
+          libldap2-dev \
+          libssl-dev \
+          libcurl4-openssl-dev \
+          mariadb-client \
+          openssh-server \
+          xmlsec1 \
+          vim \
+          sudo \
+          logrotate \
+          swig \
+          less \
           supervisor 
