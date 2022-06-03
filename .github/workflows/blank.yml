@@ -19,7 +19,7 @@ jobs:
         - 3306:3306
         options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
         env:
-          MYSQL_DATABASE: test_gmop
+          MYSQL_DATABASE: gmop
           MYSQL_USER: test
           MYSQL_PASSWORD: test
           MYSQL_ROOT_PASSWORD: example
