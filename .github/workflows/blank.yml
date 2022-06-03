@@ -50,11 +50,11 @@ jobs:
               cd ./backend
               ls -la
               pip install --upgrade pip && pip install pipenv && pipenv install --dev
-          - name: Run
-            run: |
-              cd ./backend/src
-              ls -la
-              pipenv run python manage.py test
+      - name: Run
+        run: |
+          cd ./backend/src
+          ls -la
+          pipenv run python manage.py test
 
 # ls -la
 # mysql  -u test -h mysql -P 3306 -ptest gmop < gmop_data_init_0000.sql
