@@ -19,7 +19,7 @@ jobs:
         - 3306:3306
         options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
         env:
-          MYSQL_DATABASE: test_gmop
+          MYSQL_DATABASE: gmop
           MYSQL_USER: test
           MYSQL_PASSWORD: test
           MYSQL_ROOT_PASSWORD: example
@@ -46,15 +46,15 @@ jobs:
           swig \
           less \
           supervisor 
-          mysql  -u test -h mysql -P 3306 -ptest test_gmop < gmop_data_init_0000.sql
-#     cd ./backend
-#     ls -la
-#     pip install --upgrade pip && pip install pipenv && pipenv install --dev
-# - name: Run
-#   run: |
-#     cd ./backend/src
-#     ls -la
-#     pipenv run python manage.py test
+          cd ./backend
+          ls -la
+          pip install --upgrade pip && pip install pipenv && pipenv install --dev
+      - name: Run
+        run: |
+          ls -la
+          mysql -u test -h db -ptest gmop < gmop_data_init_0000.sql
+# pipenv run python manage.py test
 
 # ls -la
 # mysql  -u test -h mysql -P 3306 -ptest gmop < gmop_data_init_0000.sql
+          # cd ./backend/src

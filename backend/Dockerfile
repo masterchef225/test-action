@@ -1,7 +1,5 @@
 FROM python:3.8
 
-ENV APP_ROOT=/app/
-
 RUN apt-get update \
     && apt-get install -y libsasl2-dev \
     python-dev \
@@ -18,12 +16,11 @@ RUN apt-get update \
     less \
     supervisor 
 
-WORKDIR ${APP_ROOT}
+WORKDIR /app
 
-ADD ./src ${APP_ROOT}
-COPY Pipfile Pipfile.lock ${APP_ROOT}
+ADD ./src /app/
+COPY Pipfile Pipfile.lock /app/
 
 RUN pip install pipenv && pipenv install --dev
 
-EXPOSE 8000
-CMD pipenv run gunicorn --bind :8000 --workers 3 --reload gmop.wsgi
+CMD sleep 68634298562934756
