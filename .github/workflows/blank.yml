@@ -32,24 +32,23 @@ jobs:
         run: |
           apt-get update -y
           apt-get install -y \
-          mysql-server
           libsasl2-dev \
-              python-dev \
-              libldap2-dev \
-              libssl-dev \
-              libcurl4-openssl-dev \
-              mariadb-client \
-              openssh-server \
-              xmlsec1 \
-              vim \
-              sudo \
-              logrotate \
-              swig \
-              less \
-              supervisor 
-              cd ./backend
-              ls -la
-              pip install --upgrade pip && pip install pipenv && pipenv install --dev
+          python-dev \
+          libldap2-dev \
+          libssl-dev \
+          libcurl4-openssl-dev \
+          mariadb-client \
+          openssh-server \
+          xmlsec1 \
+          vim \
+          sudo \
+          logrotate \
+          swig \
+          less \
+          supervisor 
+          cd ./backend
+          ls -la
+          pip install --upgrade pip && pip install pipenv && pipenv install --dev
       - name: Run
         run: |
           cd ./backend/src
