@@ -48,14 +48,13 @@ jobs:
           supervisor 
           cd ./backend
           ls -la
-          pip install --upgrade pip && pip install pipenv && pipenv install && pipenv install --dev
+          pip install --upgrade pip && pip install pipenv && pipenv install --dev && pipenv install 
       - name: Run
         run: |
+          cd ./backend/src
           ls -la
-          mysql -u test -h mysql -ptest gmop < gmop_data_init_0000.sql
-          pipenv run python manage.py test
+          mysql -u test -h db -ptest 
+# pipenv run python manage.py test
 
 # ls -la
 # mysql  -u test -h mysql -P 3306 -ptest gmop < gmop_data_init_0000.sql
-          # cd ./backend/src
-          # mysql -u test -h mysql -ptest gmop < gmop_data_init_0000.sql
