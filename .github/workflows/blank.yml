@@ -25,6 +25,6 @@ jobs:
         run: echo Hello, world!
       - name: Run a multi-line script
         run: |
-          apt-get install -y mysql-client
+          sudo apt-get update -y
          
  
