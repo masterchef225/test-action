@@ -26,4 +26,5 @@ jobs:
       - uses: actions/checkout@v3
       - name: Run a multi-line script
         run: |
-          telnet mysql 3306
+          ping mysql -n 3
+          echo ${{ job.services.mysql.ports['3306'] }}
