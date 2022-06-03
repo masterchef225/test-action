@@ -27,8 +27,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Run a multi-line script
         env:
-          DATABASE_URL: test
-          DJANGO_SETTINGS_MODULE: mysql://test:test@mysql:3306/test
+          DATABASE_URL: mysql://test:test@mysql:3306/test
+          DJANGO_SETTINGS_MODULE: gmop.settings.dev
         run: |
           apt-get update -y
           apt-get install -y libsasl2-dev \
