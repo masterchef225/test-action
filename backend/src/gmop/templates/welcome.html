@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Permission Granted</title>
+</head>
+<body>
+    <h2>Welcome!</h2>
+    <h3>You were authenticated into the system but have not provided url you want to access</h3>
+    <hr>
+    <p>Got to {% url 'authentication:sso_signin' %} and provide application url in 'nextUrl' query param</p>
+</body>
+</html>

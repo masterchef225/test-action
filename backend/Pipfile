@@ -9,8 +9,14 @@ djangorestframework = "==3.13.1"
 django-environ = "*"
 gunicorn = "*"
 mysqlclient = "*"
+djangorestframework-jwt = "*"
+pysaml2 = "*"
+django-cid = "*"
+drf-yasg = "*"
+coverage = "*"
 
 [dev-packages]
+flake8 = "*"
 
 [requires]
 python_version = "3.8"

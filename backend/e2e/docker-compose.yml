@@ -8,9 +8,23 @@ services:
       MYSQL_PASSWORD: 'test'
       MYSQL_ROOT_PASSWORD: 'root'
     ports:
-      - '3306:3306'
+      - '3308:3306'
     volumes:
       - ./gmop_data:/docker-entrypoint-initdb.d
+    networks:
+      - backend
+
+  saml_idp:
+    image: kristophjunge/test-saml-idp
+    environment:
+      SIMPLESAMLPHP_SP_ENTITY_ID: http://localhost:8000
+      SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE: http://localhost:8000/auth/sso/acs
+      SIMPLESAMLPHP_ADMIN_PASSWORD: test
+      SIMPLESAMLPHP_SECRET_SALT: salt
+    ports:
+      - "9998:8080"
+    volumes:
+    - ./saml/authsources.php:/var/www/simplesamlphp/config/authsources.php
     networks:
       - backend
 
