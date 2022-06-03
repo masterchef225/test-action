@@ -31,25 +31,29 @@ jobs:
           DJANGO_SETTINGS_MODULE: gmop.settings.dev
         run: |
           apt-get update -y
-          apt-get install -y libsasl2-dev \
-          python-dev \
-          libldap2-dev \
-          libssl-dev \
-          libcurl4-openssl-dev \
-          mariadb-client \
-          openssh-server \
-          xmlsec1 \
-          vim \
-          sudo \
-          logrotate \
-          swig \
-          less \
-          supervisor 
-          cd ./backend
+          apt-get install -y \
+          mysql
           ls -la
-          pip install --upgrade pip && pip install pipenv && pipenv install --dev
-      - name: Run
-        run: |
-          cd ./backend/src
-          ls -la
-          pipenv run python manage.py test
+          mysql  -u root -h mysql -P 3306 -pexample < gmop_data_init_0000.sql
+      # libsasl2-dev \
+#     python-dev \
+#     libldap2-dev \
+#     libssl-dev \
+#     libcurl4-openssl-dev \
+#     mariadb-client \
+#     openssh-server \
+#     xmlsec1 \
+#     vim \
+#     sudo \
+#     logrotate \
+#     swig \
+#     less \
+#     supervisor 
+#     cd ./backend
+#     ls -la
+#     pip install --upgrade pip && pip install pipenv && pipenv install --dev
+# - name: Run
+#   run: |
+#     cd ./backend/src
+#     ls -la
+#     pipenv run python manage.py test
