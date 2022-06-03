@@ -64,7 +64,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gmop.wsgi.application'
 
-DATABASES = {'default': {'NAME': 'gmop', 'USER': 'test', 'PASSWORD': 'test', 'HOST': 'mysql', 'PORT': 3306, 'ENGINE': 'django.db.backends.mysql'}}
+DATABASES = {'default': {'NAME': 'gmop', 'USER': 'root', 'PASSWORD': 'example', 'HOST': 'mysql', 'PORT': 3306, 'ENGINE': 'django.db.backends.mysql'}}
 # # DATABASES = {"default": env.db()}
 # if 'test' in sys.argv or 'test_coverage' in sys.argv:
 #     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
