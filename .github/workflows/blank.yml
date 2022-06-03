@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     services:
       mysql:
-        image: mysql
+        image: httpd
         ports:
-        - 3306:3306
-        options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
+        - 3306:80
+        # options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
         env:
           MYSQL_DATABASE: test
           MYSQL_USER: test
@@ -26,6 +26,4 @@ jobs:
       - uses: actions/checkout@v3
       - name: Run a multi-line script
         run: |
-          echo ${{ job.services.mysql.ports['3306'] }}
-          mysql -u test -h mysql  -ptest test
-          echo ${{ job.services.mysql.ports['3306'] }}
+         curl httpd
