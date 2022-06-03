@@ -47,7 +47,7 @@ jobs:
           supervisor 
           cd ./backend
           ls -la
-          pip install pipenv && pipenv install --dev
+          pip install --upgrade pip && pip install pipenv && pipenv install --dev
       - name: Run
         run: |
           cd ./backend/src
