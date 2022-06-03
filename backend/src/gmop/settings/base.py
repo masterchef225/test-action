@@ -66,8 +66,9 @@ WSGI_APPLICATION = 'gmop.wsgi.application'
 
 
 DATABASES = {"default": env.db()}
-if 'test' in sys.argv or 'test_coverage' in sys.argv:
-    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+print(DATABASES)
+# if 'test' in sys.argv or 'test_coverage' in sys.argv:
+#     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 AUTH_PASSWORD_VALIDATORS = [
     {

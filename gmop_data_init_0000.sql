@@ -1,5 +1,5 @@
--- -- CREATE DATABASE gmop;
--- -- GRANT ALL PRIVILEGES ON gmop.* to gmop;
+-- CREATE DATABASE gmop;
+-- GRANT ALL PRIVILEGES ON gmop.* to gmop;
 
 
 -- CREATE TABLE Persons (

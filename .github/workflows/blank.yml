@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: mysql
+    container: python:3.8
     services:
       mysql:
         image: mysql
@@ -30,30 +30,31 @@ jobs:
           DATABASE_URL: 'mysql://root:example@mysql:3306/gmop'
           DJANGO_SETTINGS_MODULE: gmop.settings.dev
         run: |
-          ls -la
-          mysql  -u test -h mysql -P 3306 -ptest gmop < gmop_data_init_0000.sql
-# apt-get update -y
-# apt-get install -y \
-# mysql-server
-# libsasl2-dev \
-#     python-dev \
-#     libldap2-dev \
-#     libssl-dev \
-#     libcurl4-openssl-dev \
-#     mariadb-client \
-#     openssh-server \
-#     xmlsec1 \
-#     vim \
-#     sudo \
-#     logrotate \
-#     swig \
-#     less \
-#     supervisor 
-#     cd ./backend
-#     ls -la
-#     pip install --upgrade pip && pip install pipenv && pipenv install --dev
-# - name: Run
-#   run: |
-#     cd ./backend/src
-#     ls -la
-#     pipenv run python manage.py test
+          apt-get update -y
+          apt-get install -y \
+          mysql-server
+          libsasl2-dev \
+              python-dev \
+              libldap2-dev \
+              libssl-dev \
+              libcurl4-openssl-dev \
+              mariadb-client \
+              openssh-server \
+              xmlsec1 \
+              vim \
+              sudo \
+              logrotate \
+              swig \
+              less \
+              supervisor 
+              cd ./backend
+              ls -la
+              pip install --upgrade pip && pip install pipenv && pipenv install --dev
+          - name: Run
+            run: |
+              cd ./backend/src
+              ls -la
+              pipenv run python manage.py test
+
+# ls -la
+# mysql  -u test -h mysql -P 3306 -ptest gmop < gmop_data_init_0000.sql
