@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: python:3.8
+    container: mysql
     services:
       mysql:
         image: mysql
@@ -30,12 +30,12 @@ jobs:
           DATABASE_URL: mysql://root:example@mysql:3306/gmop
           DJANGO_SETTINGS_MODULE: gmop.settings.dev
         run: |
-          apt-get update -y
-          apt-get install -y \
-          mysql-server
           ls -la
           mysql  -u root -h mysql -P 3306 -pexample < gmop_data_init_0000.sql
-      # libsasl2-dev \
+# apt-get update -y
+# apt-get install -y \
+# mysql-server
+# libsasl2-dev \
 #     python-dev \
 #     libldap2-dev \
 #     libssl-dev \
