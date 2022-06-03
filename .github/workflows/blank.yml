@@ -46,8 +46,10 @@ jobs:
           less \
           supervisor 
           cd ./backend
+          ls -la
           pip install pipenv && pipenv install --dev
       - name: Run
         run: |
+          cd ./backend/src
           ls -la
     # pipenv run python ./src/manage.py migrate --noinput
