@@ -54,7 +54,7 @@ jobs:
           cd ./backend/src
           ls -la
           pipenv run python test_db.py
-          pipenv run python manage.py --settings=gmop.settings.dev test
+          pipenv run python manage.py test --settings gmop.settings.dev 
 
 # ls -la
 # mysql  -u test -h mysql -P 3306 -ptest gmop < gmop_data_init_0000.sql
