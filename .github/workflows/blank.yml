@@ -52,4 +52,4 @@ jobs:
         run: |
           cd ./backend/src
           ls -la
-    # pipenv run python ./src/manage.py migrate --noinput
+          pipenv run python manage.py migrate --noinput
