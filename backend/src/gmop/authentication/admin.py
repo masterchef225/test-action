@@ -1,3 +1,3 @@
 from django.contrib import admin
-# lskfhsldsfsdfsdgfs
+# lskfhsldsfsdfsdgfssdf
 # Register your models here.
