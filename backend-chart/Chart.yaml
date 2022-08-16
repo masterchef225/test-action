@@ -1,0 +1,6 @@
+apiVersion: v2
+name: service-chart
+description: fix aws variables
+type: application
+version: 0.3.5
+appVersion: "1.3.6"

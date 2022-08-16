@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+  labels:
+    mars: microservise
+    find: {{ .Values.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      mars: microservise
+      find: {{ .Values.name }}
+  template:
+    metadata:
+      labels:
+        mars: microservise
+        find: {{ .Values.name }}
+    spec:
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 8 }}
+      containers:
+      - name: service
+        image: {{ .Values.image.name }}:{{ .Values.image.tag }}
+        ports:
+          - name: http
+            containerPort: 80
+            protocol: TCP

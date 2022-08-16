@@ -1,0 +1,35 @@
+{{- if eq .Values.namespace "development" }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}-pgadmin
+  labels:
+    metafighter: microservise
+    find: {{ .Values.name }}-pgadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      metafighter: microservise
+      find: {{ .Values.name }}-pgadmin
+  template:
+    metadata:
+      labels:
+        metafighter: microservise
+        find: {{ .Values.name }}-pgadmin
+    spec:
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 8 }}
+      containers:
+      - name: service
+        image: dpage/pgadmin4:latest
+        env:
+          - name: PGADMIN_DEFAULT_EMAIL
+            value: "admin@mars.com"
+          - name: PGADMIN_DEFAULT_PASSWORD
+            value: "test"
+        ports:
+          - name: http
+            containerPort: 80
+            protocol: TCP
+{{- end }}

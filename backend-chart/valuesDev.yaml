@@ -1,0 +1,13 @@
+host: api.dev.mars.solbeg.com
+replicaCount: 1
+port: 80
+nodeSelector:
+  role: main
+service:
+  resources:
+    requests:
+      memory: 100Mi
+      cpu: 250m
+    limits:
+      memory: 100Mi
+      cpu: 300m
