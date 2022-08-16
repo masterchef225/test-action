@@ -22,3 +22,11 @@ jobs:
     - name: update EKS
       run: |
           aws eks --region us-west-1 update-kubeconfig --name mars-eks-cluster 
+          helm upgrade --install \
+            --set name=mars-backend  \
+            --set namespace=development \
+            --set image.tag=latest \
+            --set image.name=nginx \
+            -n development  \
+            -f ./backend-chart/valuesDev.yaml  \
+            mars-backend ./backend-chart
