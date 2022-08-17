@@ -1,32 +1,43 @@
-# This is a basic workflow to help you get started with Actions
+# # This is a basic workflow to help you get started with Actions
 
-name: CI
+# name: CI
 
-on:
-  push:
-    branches: [ main ]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Check out code
-      uses: actions/checkout@v2
-    
+# on:
+#   push:
+#     branches: [ main ]
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Check out code
+#       uses: actions/checkout@v2
 
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-west-1
-    - name: update EKS
-      run: |
-          aws eks --region us-west-1 update-kubeconfig --name mars-eks-cluster 
-          helm upgrade --install \
-            --set name=mars-backend  \
-            --set namespace=development \
-            --set image.tag=latest \
-            --set image.name=nginx \
-            -n development  \
-            -f ./backend-chart/valuesDev.yaml  \
-            mars-backend ./backend-chart
+#     - name: Login to Amazon ECR
+#       id: login-ecr
+#       uses: aws-actions/amazon-ecr-login@v1
+
+#     - name: Build, tag, and push image to Amazon ECR
+#       env:
+#         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+#         ECR_REPOSITORY: backend
+#       run: |
+#         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ github.sha }} ./src/Mars
+#         docker push $ECR_REGISTRY/$ECR_REPOSITORY:${{ github.sha }}
+
+#     - name: Configure AWS credentials
+#       uses: aws-actions/configure-aws-credentials@v1
+#       with:
+#         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#         aws-region: us-west-1
+#     - name: update EKS
+#       run: |
+#           aws eks --region us-west-1 update-kubeconfig --name mars-eks-cluster 
+#           helm upgrade --install \
+#             --set name=mars-backend  \
+#             --set namespace=development \
+#             --set image.tag=latest \
+#             --set image.name=nginx \
+#             -n development  \
+#             -f ./backend-chart/valuesDev.yaml  \
+#             mars-backend ./backend-chart
