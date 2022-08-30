@@ -13,7 +13,7 @@ jobs:
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v3
         with:
-          name: homework
+          name: APP-BUILD
           path: math-homewo*
           retention-days: 5
 
