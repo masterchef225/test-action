@@ -14,7 +14,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: homework
-          path: math-homework.txt
+          path: math-homewo*
+          retention-days: 5
 
   # job_2:
   #   name: Multiply by 9
